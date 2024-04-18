@@ -42,7 +42,7 @@ foreach ($setting in $registrySettings) {
 
 #Run size explorer
 $driveLetter = $env:driveLetter
-Start-Process -FilePath "sescan.exe" -ArgumentList "/o c:\windows\temp\sz-rpt.sef /s $driveLetter" -NoNewWindow -Wait
+Start-Process -FilePath ".\sescan.exe" -ArgumentList "/o c:\windows\temp\sz-rpt.sef /s $driveLetter" -NoNewWindow -Wait
 
 #Email the file
 # Check if the module is installed

@@ -1,4 +1,3 @@
-Start-Transcript -Path "C:\temp\sizeExplorerTranscript.txt"
 #attempting to recreate size explorer script from CWA
 
 #Delete c:\windows\temp\sz-rpt.sef if it exists
@@ -66,7 +65,7 @@ if (-not (Get-Module -Name Mailozaurr -ListAvailable)) {
 
 # Update the module
 Write-Host "Checking for updates to Mailozaurr module..."
-Update-Module -Name Mailozaurr
+Update-Module -Name Mailozaurr -Force
 if ($?) {
     Write-Host "Mailozaurr module is up to date."
 } else {
@@ -118,5 +117,3 @@ if (Test-Path $file) {
 Write-Output "Cleaning up registry keys"
 Remove-Item -Path "HKLM:\SOFTWARE\JSDSoftware\SEScan4\" -Force
 Remove-Item -Path "HKLM:\SOFTWARE\Wow6432Node\JSDSoftware\SEScan4" -Force
-
-Stop-Transcript

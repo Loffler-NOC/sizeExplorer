@@ -1,3 +1,4 @@
+Start-Transcript -Path "C:\temp\sizeExplorerTranscript.txt"
 #attempting to recreate size explorer script from CWA
 
 #Delete c:\windows\temp\sz-rpt.sef if it exists
@@ -117,3 +118,5 @@ if (Test-Path $file) {
 Write-Output "Cleaning up registry keys"
 Remove-Item -Path "HKLM:\SOFTWARE\JSDSoftware\SEScan4\" -Force
 Remove-Item -Path "HKLM:\SOFTWARE\Wow6432Node\JSDSoftware\SEScan4" -Force
+
+Stop-Transcript

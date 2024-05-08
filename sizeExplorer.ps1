@@ -51,6 +51,7 @@ $driveLetter = $env:driveLetter
 Start-Process -FilePath ".\sescan.exe" -ArgumentList "/o c:\windows\temp\sz-rpt.sef /s $driveLetter" -NoNewWindow -Wait
 
 #Email the file
+Get-PackageProvider -Name NuGet -Force
 Install-Module -Name Mailozaurr -AllowClobber -Force
 Import-Module -Name Mailozaurr -Force
 

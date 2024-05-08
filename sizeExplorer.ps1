@@ -51,32 +51,8 @@ $driveLetter = $env:driveLetter
 Start-Process -FilePath ".\sescan.exe" -ArgumentList "/o c:\windows\temp\sz-rpt.sef /s $driveLetter" -NoNewWindow -Wait
 
 #Email the file
-# Check if the module is installed
-if (-not (Get-Module -Name Mailozaurr -ListAvailable)) {
-    Write-Host "Mailozaurr module is not installed. Attempting to install..."
-    Install-Module -Name Mailozaurr -AllowClobber -Force
-    if ($?) {
-        Write-Host "Mailozaurr module installed successfully."
-        Import-Module -Name Mailozaurr -Force
-        Write-Host "Mailozaurr module imported."
-    } else {
-        Write-Host "Failed to install Mailozaurr module. Please check for errors."
-        exit
-    }
-} else {
-    Write-Host "Mailozaurr module is already installed."
-    Import-Module -Name Mailozaurr -Force
-    Write-Host "Mailozaurr module imported."
-}
-
-# Update the module
-Write-Host "Checking for updates to Mailozaurr module..."
-Update-Module -Name Mailozaurr -Force
-if ($?) {
-    Write-Host "Mailozaurr module is up to date."
-} else {
-    Write-Host "Failed to update Mailozaurr module. Please check for errors."
-}
+Install-Module -Name Mailozaurr -AllowClobber -Force
+Import-Module -Name Mailozaurr -Force
 
 # Send email with CSV attachment
 $sendToEmail = $env:sendToEmail
